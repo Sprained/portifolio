@@ -64,68 +64,20 @@
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">Últimos Projetos</h2>
                         <div class="content">    
-                                               
-                            <!-- <div class="item featured text-center">
-                                
-                                <div class="featured-image has-ribbon">
-                                    <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-4-template-for-saas-businesses/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="assets/images/projects/project-featured.jpg" alt="project name" />
-                                    </a>
-                                    <div class="ribbon">
-                                        <div class="text">New</div>
-                                    </div>
-                                </div>
-                                
-                                <h3 class="title mb-3"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-4-template-for-saas-businesses/" target="_blank">Launch - The perfect Bootstrap template for SaaS products</a></h3>
-                                    
-                                <div class="desc text-left">                                    
-                                    <p>You can promote your main project here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
-                                </div>      
-                                <a class="btn btn-cta-secondary" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-4-template-for-saas-businesses/" target="_blank"><i class="fas fa-thumbs-up"></i> Back my project</a>                 
-                            </div> -->
-                            <!-- <hr class="divider" /> -->
                                                 
+                            @foreach($projetos as $projeto)
                             <div class="item">
-                                <h3 class="title"><a href="https://github.com/Sprained/Bot-Rastreio" target="_blank">Bot-Rastreio</a> <span class="badge badge-end mr-2">Finalizado</span><span class="badge badge-php mr-2">PHP</span><span class="badge badge-mysql mr-2">MySQL</span></h3>
+                                <h3 class="title"><a href="{{$projeto['link'] ? $projeto['link'] : '#'}}" target="_blank">{{$projeto['titulo']}}</a>@foreach($projeto['tags'] as $tag) <span class="badge {{$tag['class_css']}} mr-2">{{$tag['descricao']}}</span>@endforeach</h3>
 
-                                <p class="summary">Bot do telegram feito para rastrear encomendas dos correios.</p>
+                                <p class="summary">{{$projeto['descricao']}}</p>
 
-                                <p><a class="more-link" href="https://github.com/Sprained/Bot-Rastreio" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p>
+                                {!!
+                                    $projeto['link'] ? '<p><a class="more-link" href="' . $projeto['link'] . '" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p>' : null
+                                !!}
                             </div><!--//item-->
+                            @endforeach
 
-                            <div class="item">
-                                <h3 class="title"><a href="https://github.com/Sprained/calculo-frete" target="_blank">Calculo-Frete</a> <span class="badge badge-end mr-2">Finalizado</span><span class="badge badge-php mr-2">PHP</span></h3>
-
-                                <p class="summary">Biblioteca para a facilitação do cálculo de preços e prazos de entregas, usando a API disponibilizada pelos Correios. E realização de consultas de endereços por CEP, através do VIACEP.</p>
-
-                                <p><a class="more-link" href="https://github.com/Sprained/calculo-frete" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p>
-                            </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title"><a href="#" target="_blank" class="no-link" onclick="return false">Nexus Doc</a> <span class="badge badge-progress mr-2">Em Progresso</span><span class="badge badge-php mr-2">PHP</span><span class="badge badge-mysql mr-2">MySQL</span></h3>
-
-                                <p class="summary">Site para formatação de documentos estilo abnt2.</p>
-
-                                <!-- <p><a class="more-link" href="https://github.com/Sprained/calculo-frete" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p> -->
-                            </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title"><a href="#" target="_blank" class="no-link" onclick="return false">Lovely Pet API</a> <span class="badge badge-progress mr-2">Em Progresso</span><span class="badge badge-php mr-2">PHP</span><span class="badge badge-mysql mr-2">MySQL</span><span class="badge badge-laravel mr-2">Laravel</span></h3>
-
-                                <p class="summary">O LovelyPet é um aplicativo voltado para adoções de animais. Com o intuito de ajudar as ongs o qual algumas se encontram lotadas.</p>
-
-                                <!-- <p><a class="more-link" href="https://github.com/Sprained/calculo-frete" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p> -->
-                            </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title"><a href="#" target="_blank" class="no-link" onclick="return false">Nexus Parking API</a> <span class="badge badge-end mr-2">Finalizado</span><span class="badge badge-node mr-2">NodeJS</span><span class="badge badge-postgre mr-2">PostgreSQL</span></h3>
-
-                                <p class="summary">Sistema de gerenciamento de estacionamento.</p>
-
-                                <!-- <p><a class="more-link" href="https://github.com/Sprained/calculo-frete" target="_blank"><i class="fas fa-external-link-alt"></i>Acesse o Projeto</a></p> -->
-                            </div><!--//item-->
-
-                            <a class="btn btn-cta-secondary" href="https://github.com/Sprained">Mais no GitHub <i class="fas fa-chevron-right pt-1"></i></a>
+                            <a class="btn btn-cta-secondary" href="{{$git['link_midia']}}">Mais no GitHub <i class="fas fa-chevron-right pt-1"></i></a>
                             
                         </div><!--//content-->  
                     </div><!--//section-inner-->                
@@ -199,54 +151,15 @@
                         <h2 class="heading">Skills</h2>
                         <div class="content">
                             <div class="skillset">
-                               
+                                @foreach($skills as $skill)
                                 <div class="item">
-                                    <h3 class="level-title">NodeJS & Javascript<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Experiência em desenvolvimento de APIs e microsserviços."><i class="fas fa-info-circle"></i>Avançado</span></h3>
+                                    <h3 class="level-title">{{$skill['nome_hab']}}<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="{{$skill['descricao']}}"><i class="fas fa-info-circle"></i>{{$skill['nivel']}}</span></h3>
                                     <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="90%">
+                                        <div class="level-bar-inner" data-level="{{$skill['barra_progresso']}}%">
                                         </div>                                      
                                     </div><!--//level-bar-->                                 
                                 </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">Laravel<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Experiência em desenvolvimento de APIs."><i class="fas fa-info-circle"></i>Avançado</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="80%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">PHP<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Experiência em desenvolvimento de APIs e Bibliotecas."><i class="fas fa-info-circle"></i>Intermediário</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="60%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">MySQL &amp; PostgreSQL<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true"><i class="fas fa-info-circle"></i>Intermediário</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="50%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-                                
-                                <div class="item">
-                                    <h3 class="level-title">Unit Test<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true"><i class="fas fa-info-circle"></i>Básico</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="40%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">HTML &amp; CSS<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true"><i class="fas fa-info-circle"></i>Básico</span></h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="20%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
+                                @endforeach
                                 
                                 <p><a class="more-link" href="{{$git['link_midia']}}"><i class="fas fa-external-link-alt"></i>Mais no GitHub</a></p> 
                             </div>              
@@ -258,20 +171,12 @@
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">Educação</h2>
                         <div class="content">
+                            @foreach($educacoes as $educacao)
                             <div class="item">                      
-                                <h3 class="title"><i class="fas fa-graduation-cap"></i> Graduação em Ciência da Computação</h3>
-                                <h4 class="university">UNIFG - Faculdade dos Guararapes <br><span class="year">Concluído - (2016-2020)</span></h4>
+                                <h3 class="title"><i class="fas fa-graduation-cap"></i> {{$educacao['titulo']}}</h3>
+                                <h4 class="university">{{$educacao['subtitulo']}} <br><span class="year">{{$educacao['status'] ? 'Concluído' : 'Em andamento'}} {{$educacao['data_inicio'] ? ' - (' . $educacao['data_inicio'] . '-' . $educacao['data_final'] . ')' : null }}</span></h4>
                             </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title"><i class="fas fa-graduation-cap"></i> BootCamp GoStack</h3>
-                                <h4 class="university">RocketSeat <br><span class="year">Concluído</span></h4>
-                            </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title"><i class="fas fa-graduation-cap"></i> Estação Hack From Facebook</h3>
-                                <h4 class="university">Mastertech <br><span class="year">Concluído</span></h4>
-                            </div><!--//item-->
+                            @endforeach
 
                         </div><!--//content-->
                     </div><!--//section-inner-->

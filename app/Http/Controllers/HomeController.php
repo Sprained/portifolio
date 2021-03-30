@@ -11,7 +11,10 @@ class HomeController extends Controller
         return view('portifolio', [
             'info' => InfosPessoaisController::selectInfo(),
             'midias' => MidiaSociaisController::select(),
-            'git' => MidiaSociaisController::selectGit()
+            'git' => MidiaSociaisController::selectGit(),
+            'skills' => HabilidadeController::select(),
+            'educacoes' => EducacaoController::select(),
+            'projetos' => ProjetosController::select()
         ]);
     }
 }
