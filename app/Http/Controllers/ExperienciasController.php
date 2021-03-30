@@ -50,4 +50,9 @@ class ExperienciasController extends Controller
 
         return response()->json(null, 201);
     }
+
+    public static function select()
+    {
+        return Experiencias::with('servicos')->get();
+    }
 }

@@ -87,37 +87,22 @@
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">Experiência</h2>
                         <div class="content">
+                            @foreach($experiencias as $experiencia)
                             <div class="item">
-                                <h3 class="title">Co-fundador e Desenvolvedor Back-end - <span class="place">Nexus Developers</span> <span class="year">(2020 - Momento)</span></h3>
-                                <ul>
-                                    <li>- Desenvolvimento de APIs em Laravel e NodeJS;</li>
-                                    <li>- Gestão de Projetos (com metodologia ágil SCRUM);</li>
-                                    <li>- Suporte na correção de bugs e otimização de códigos;</li>
-                                </ul>
-                            </div><!--//item-->
+                                <h3 class="title">{{$experiencia['titulo']}} - <span class="place">{{$experiencia['subtitulo']}}</span> <span class="year">({{$experiencia['ano_inicio']}} - {{$experiencia['ano_finalizacao'] ? $experiencia['ano_finalizacao'] : 'Momento'}})</span></h3>
+                                @if($experiencia['descricao'] != 'null')
+                                    <p>{{$experiencia['descricao']}}</p>
+                                @endif
 
-                            <div class="item">
-                                <h3 class="title">Desenvolvedor Back-end - <span class="place">IBGM</span> <span class="year">(2020 - 2021)</span></h3>
-                                <ul>
-                                    <li>- Desenvolvimento em API com a tecnologia Laravel;</li>
-                                    <li>- Participação no projeto QI (aplicativo para perguntas e respostas da faculdade);</li>
-                                </ul>
+                                @if(count($experiencia['servicos']) > 0)
+                                    <ul>
+                                        @foreach($experiencia['servicos'] as $servico)
+                                        <li>{{$servico['descricao_serv']}}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div><!--//item-->
-
-                            <div class="item">
-                                <h3 class="title">Gerente de Projetos e Desenvolvedor Back-end - <span class="place">BubbleDev</span> <span class="year">(2019 - 2020)</span></h3>
-                                <p>Fundador da startup BubbleDev, formada por 5 desenvolvedores, os quais desenvolveram o aplicativo LovelyPet utilizando as tecnologias Android Studio e Firebase. Nosso projeto foi incubado pela Prefeitura de Jaboatão.</p>
-                            </div><!--//item-->
-                            
-                            <div class="item">
-                                <h3 class="title">Administrador - <span class="place">FR Vida e Saúde</span> <span class="year">(2017 - 2017)</span></h3>
-                                <ul>
-                                    <li>- Administração de funcionários;</li>
-                                    <li>- Fechamento de contas;</li>
-                                    <li>- Gerenciamento dos recursos da empresa.</li>
-                                    <li>- Atendimento ao cliente.</li>
-                                </ul>
-                            </div><!--//item-->
+                            @endforeach
                             
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 

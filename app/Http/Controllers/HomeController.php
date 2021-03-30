@@ -14,7 +14,8 @@ class HomeController extends Controller
             'git' => MidiaSociaisController::selectGit(),
             'skills' => HabilidadeController::select(),
             'educacoes' => EducacaoController::select(),
-            'projetos' => ProjetosController::select()
+            'projetos' => ProjetosController::select(),
+            'experiencias' => ExperienciasController::select()
         ]);
     }
 }

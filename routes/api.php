@@ -23,4 +23,7 @@ Route::group(['middleware' => ['auth']],  function() {
     Route::get('/projeto', [App\Http\Controllers\ProjetosController::class, 'select']);
 
     Route::post('/experiencia', [App\Http\Controllers\ExperienciasController::class, 'register']);
+    Route::get('/experiencia', [App\Http\Controllers\ExperienciasController::class, 'select']);
+
+    Route::post('/servico', [App\Http\Controllers\ServicosExperienciasController::class, 'register']);
 });

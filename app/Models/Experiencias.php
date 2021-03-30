@@ -17,4 +17,8 @@ class Experiencias extends Model
 
     public $timestamps = false;
 
+    public function servicos()
+    {
+        return $this->hasMany(ServicosExperiencias::class, 'id_experiencia');
+    }
 }
