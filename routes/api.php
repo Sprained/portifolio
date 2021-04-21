@@ -13,6 +13,7 @@ Route::group(['middleware' => ['auth']],  function() {
     Route::post('/midias', [App\Http\Controllers\MidiaSociaisController::class, 'register']);
 
     Route::post('/skill', [App\Http\Controllers\HabilidadeController::class, 'register']);
+    Route::get('/skill', [App\Http\Controllers\HabilidadeController::class, 'select']);
 
     Route::post('/educacao', [App\Http\Controllers\EducacaoController::class, 'register']);
 
