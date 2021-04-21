@@ -53,6 +53,6 @@ class ExperienciasController extends Controller
 
     public static function select()
     {
-        return Experiencias::with('servicos')->get();
+        return Experiencias::with('servicos')->orderBy('id', 'DESC')->get();
     }
 }
