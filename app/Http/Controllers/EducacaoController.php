@@ -56,7 +56,7 @@ class EducacaoController extends Controller
 
     public static function select()
     {
-        return Educacao::all([
+        return Educacao::orderBy('id', 'DESC')->get([
             'id', 
             'titulo', 
             'subtitulo', 
