@@ -53,6 +53,6 @@ class HabilidadeController extends Controller
 
     public static function select()
     {
-        return Habilidade::all(['nome_hab', 'nivel', 'barra_progresso', 'descricao'])->orderBy('barra_progresso', 'DESC');
+        return Habilidade::orderBy('barra_progresso', 'DESC')->all(['nome_hab', 'nivel', 'barra_progresso', 'descricao']);
     }
 }
